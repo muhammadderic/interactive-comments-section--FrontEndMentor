@@ -1,7 +1,11 @@
-import logo from './logo.svg';
+import ChatBox from "./components/ChatBox";
+import "./styles/app.scss";
+
 function App() {
   return (
-    <h1>Hello Deric</h1>
+    <div className="app-container">
+      <ChatBox />
+    </div>
   );
 }
 
