@@ -1,13 +1,15 @@
 import ChatBox from "./components/ChatBox";
+import CommentBox from "./components/CommentBox";
 import { data } from "./data";
 import "./styles/app.scss";
-
-console.log(data.comments);
 
 function App() {
   return (
     <div className="app-container">
-      <ChatBox data={data.comments[0]} />
+      {data.comments.map(comment => (
+        <ChatBox data={comment} />
+      ))}
+      <CommentBox />
     </div>
   );
 }
