@@ -1,8 +1,8 @@
 import "../styles/chatbox.scss";
 
-export default function ChatBox({ data: { content, createdAt, score, user: { username, image } } }) {
+export default function ChatBox({ data: { content, createdAt, score, user: { username, image } }, child }) {
   return (
-    <div className="chat-box-container">
+    <div className={child ? "chat-box-container-child" : "chat-box-container"}>
       <div className="detail">
         <div className="photo-wrapper">
           <img src={image.png} alt="profile" />
