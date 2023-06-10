@@ -1,24 +1,24 @@
 import "../styles/register.scss";
 
-export default function Register() {
+export default function Login() {
   return (
     <div className="register">
       <div className="wrapper">
         <div className="left">
           <h3 className="logo">Deric Interactive Comments</h3>
           <span className="description">
-            This interactive comments only for your computer hehehe
+            Only using username...
           </span>
         </div>
         <div className="right">
           <form className="box">
-            <h2>Register</h2>
+            <h2>Login</h2>
             <input
               placeholder="Username"
               required
             />
             <button type="submit">
-              Sign Up
+              Sign In
             </button>
           </form>
         </div>

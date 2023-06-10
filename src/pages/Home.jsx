@@ -1,6 +1,6 @@
 import Chats from "../components/Chats";
 import CommentBox from "../components/CommentBox";
-import { data } from "./data";
+import { data } from "../data";
 import "../styles/home.scss";
 
 export default function Home() {
