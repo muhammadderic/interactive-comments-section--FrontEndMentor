@@ -67,6 +67,11 @@
       }
     }
 
+    .user-control {
+      display: flex;
+      gap: 1rem;
+    }
+
     .reply-wrapper {
       display: flex;
       align-items: center;
