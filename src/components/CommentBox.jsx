@@ -35,7 +35,7 @@ export default function CommentBox({ text }) {
         <div className="photo-wrapper">
           <img src="/images/avatars/image-ramsesmiron.png" alt="profile" />
         </div>
-        <SubmitButton text="SEND" onClick={sendHandler} />
+        <SubmitButton text={text} onClick={sendHandler} />
       </div>
     </div>
   )
