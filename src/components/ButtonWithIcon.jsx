@@ -1,8 +1,8 @@
-export default function ButtonWithIcon({ filename, text }) {
+export default function ButtonWithIcon({ filename, text, onClick }) {
   return (
-    <div className="reply-wrapper">
+    <button className="reply-wrapper" onClick={onClick}>
       <img src={`/images/${filename}.svg`} alt="icon to manage chat" className="icon" />
       <p className="reply-text">{text}</p>
-    </div>
+    </button>
   )
 }

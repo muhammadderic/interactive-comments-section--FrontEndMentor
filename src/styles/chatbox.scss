@@ -12,79 +12,89 @@
   border-radius: 1rem;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 
-  .detail {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+  .chat-box-wrapper {
 
-    p {
-      margin: 0;
-    }
-
-    img {
-      width: 40px;
-    }
-
-    .name {
-      font-weight: bold;
-    }
-
-    .date {
-      color: color.$grayish-blue;
-    }
-  }
-
-  .comment {
-    color: color.$grayish-blue;
-    line-height: 1.5rem;
-  }
-
-  .control {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    .vote-wrapper {
-      padding: .5rem;
+    .detail {
       display: flex;
       align-items: center;
       gap: 1rem;
-      background-color: color.$light-gray;
-      border-radius: .5rem;
 
-      .icon-plus {
-        width: 15px;
-      }
-
-      .vote-num {
+      p {
         margin: 0;
+      }
+
+      img {
+        width: 40px;
+      }
+
+      .name {
         font-weight: bold;
-        color: color.$moderate-blue;
       }
 
-      .icon-minus {
-        width: 15px;
+      .date {
+        color: color.$grayish-blue;
       }
     }
 
-    .user-control {
-      display: flex;
-      gap: 1rem;
+    .comment {
+      color: color.$grayish-blue;
+      line-height: 1.5rem;
     }
 
-    .reply-wrapper {
+    .control {
       display: flex;
+      justify-content: space-between;
       align-items: center;
 
-      .icon-reply {
-        width: 15px;
-        height: 15px;
+      .vote-wrapper {
+        padding: .5rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        background-color: color.$light-gray;
+        border-radius: .5rem;
+
+        .icon-plus {
+          width: 15px;
+        }
+
+        .vote-num {
+          margin: 0;
+          font-weight: bold;
+          color: color.$moderate-blue;
+        }
+
+        .icon-minus {
+          width: 15px;
+        }
       }
 
-      .reply-text {
-        margin-left: .5rem;
-        font-weight: 500;
-        color: color.$moderate-blue;
+      .user-control {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .reply-wrapper {
+        padding: 0;
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        border: none;
+
+        .icon-reply {
+          width: 15px;
+          height: 15px;
+        }
+
+        .reply-text {
+          margin-left: .5rem;
+          font-weight: bold;
+          color: color.$moderate-blue;
+
+          &:hover {
+            color: color.$light-grayish-blue;
+          }
+        }
       }
     }
   }

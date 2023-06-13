@@ -7,7 +7,6 @@ import Register from "./pages/Register";
 
 function App() {
   const { user } = useContext(UserContext);
-  console.log(user);
 
   return (
     <BrowserRouter>
