@@ -10,8 +10,12 @@ export const UserContext = createContext(INITIAL_STATE);
 export const UserContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(UserReducer, INITIAL_STATE);
 
+  if (localStorage.getItem("comments") === null) {
+    localStorage.setItem("comments", JSON.stringify([]));
+  }
+
   useEffect(() => {
-    localStorage.setItem("user", JSON.stringify(state.user))
+    localStorage.setItem("user", JSON.stringify(state.user));
   }, [state.user])
 
   return (

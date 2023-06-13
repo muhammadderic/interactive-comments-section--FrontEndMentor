@@ -9,7 +9,7 @@ export default function Home() {
       {data.comments.map(comment => (
         <Chats key={comment.id} data={comment} />
       ))}
-      <CommentBox />
+      <CommentBox text="SEND" />
     </div>
   )
 }
