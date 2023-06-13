@@ -4,10 +4,10 @@ import ButtonWithIcon from "./ButtonWithIcon";
 import CommentBox from "./CommentBox";
 
 export default function ChatBox({ data }) {
-  const [replyBoxOpen, setReplyBoxOpen] = useState(false);
+  const [commentBoxOpen, setCommentBoxOpen] = useState(false);
 
-  const replyHandler = () => {
-    setReplyBoxOpen(!replyBoxOpen);
+  const commentHandler = () => {
+    setCommentBoxOpen(!commentBoxOpen);
   }
 
   return (
@@ -30,13 +30,13 @@ export default function ChatBox({ data }) {
           {data.replyingTo ?
             <div className="user-control">
               <ButtonWithIcon filename={"icon-delete"} text={"Delete"} />
-              <ButtonWithIcon filename={"icon-edit"} text={"Edit"} />
+              <ButtonWithIcon filename={"icon-edit"} text={"Edit"} onClick={commentHandler} />
             </div> :
-            <ButtonWithIcon filename={"icon-reply"} text={"Reply"} onClick={replyHandler} />
+            <ButtonWithIcon filename={"icon-reply"} text={"Reply"} onClick={commentHandler} />
           }
         </div>
       </div>
-      {replyBoxOpen && <CommentBox />}
+      {commentBoxOpen && <CommentBox />}
     </div>
   )
 }
