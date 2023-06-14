@@ -9,7 +9,6 @@ export default function CommentBox({ text }) {
   const { user } = useContext(UserContext);
 
   const commentForm = {
-    "id": 1,
     "content": commentText,
     "createdAt": Date.now(),
     "score": 0,
@@ -24,8 +23,9 @@ export default function CommentBox({ text }) {
 
   const sendHandler = () => {
     const comments = JSON.parse(localStorage.getItem("comments"));
-    comments.push(commentForm);
+    comments.push({ id: comments.length + 1, ...commentForm });
     localStorage.setItem("comments", JSON.stringify(comments));
+    window.location.reload();
   }
 
   return (

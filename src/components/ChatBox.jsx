@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { useState } from "react";
+import { UserContext } from "../contexts/UserContext";
 import "../styles/chatbox.scss";
 import ButtonWithIcon from "./ButtonWithIcon";
 import CommentBox from "./CommentBox";
@@ -6,6 +8,7 @@ import CommentBox from "./CommentBox";
 export default function ChatBox({ data }) {
   const [editBoxOpen, setEditBoxOpen] = useState(false);
   const [replyBoxOpen, setReplyBoxOpen] = useState(false);
+  const { user } = useContext(UserContext);
 
   const editHandler = () => {
     setEditBoxOpen(!editBoxOpen);
@@ -22,7 +25,7 @@ export default function ChatBox({ data }) {
           <div className="photo-wrapper">
             <img src={data.user.image.png} alt="profile" />
           </div>
-          <p className="name">{data.username}</p>
+          <p className="name">{data.user.username}</p>
           <p className="date">{data.createdAt}</p>
         </div>
         <p className="comment">{data.content}</p>
@@ -32,7 +35,7 @@ export default function ChatBox({ data }) {
             <p className="vote-num">{data.score}</p>
             <img src="/images/icon-minus.svg" alt="unvote" className="icon-minus" />
           </div>
-          {data.replyingTo ?
+          {data.replyingTo && user === data.user.username ?
             <div className="user-control">
               <ButtonWithIcon filename={"icon-delete"} text={"Delete"} />
               <ButtonWithIcon filename={"icon-edit"} text={"Edit"} onClick={editHandler} />
