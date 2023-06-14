@@ -20,6 +20,7 @@ export default function Register() {
     if (!users.includes(username)) {
       users.push(username);
       localStorage.setItem("users", JSON.stringify(users));
+      localStorage.setItem("user", username);
     }
     dispatch({ type: "REGISTER", payload: username })
     navigate("/login");
