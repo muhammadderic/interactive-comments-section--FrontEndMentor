@@ -1,5 +1,4 @@
-import { useContext } from "react";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../contexts/UserContext";
 import "../styles/register.scss";
@@ -9,9 +8,21 @@ export default function Register() {
   const { dispatch } = useContext(UserContext);
   const navigate = useNavigate();
 
+  if (localStorage.getItem("users") === null) {
+    localStorage.setItem("users", JSON.stringify([]));
+  }
+  if (localStorage.getItem("comments") === null) {
+    localStorage.setItem("comments", JSON.stringify([]));
+  }
+
   const submitHandler = async () => {
+    const users = JSON.parse(localStorage.getItem("users"));
+    if (!users.includes(username)) {
+      users.push(username);
+      localStorage.setItem("users", JSON.stringify(users));
+    }
     dispatch({ type: "REGISTER", payload: username })
-    navigate("/");
+    navigate("/login");
   }
 
   return (

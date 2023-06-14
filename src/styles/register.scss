@@ -57,6 +57,15 @@
         outline: none;
       }
 
+      .login-error {
+        margin: .5rem auto;
+        font-weight: bold;
+        color: red;
+      }
+
+      .error-hide {
+        display: none;
+      }
 
       button {
         height: 50px;
