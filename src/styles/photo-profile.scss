@@ -1,0 +1,17 @@
+@use 'color';
+
+.photo-profile-wrapper {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: color.$soft-red;
+  color: #fff;
+  border: 2px solid color.$moderate-blue;
+  border-radius: 50%;
+
+  .photo-profile__text {
+    font-size: .5rem;
+  }
+}

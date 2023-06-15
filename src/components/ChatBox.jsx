@@ -1,9 +1,9 @@
-import { useContext } from "react";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { UserContext } from "../contexts/UserContext";
-import "../styles/chatbox.scss";
 import ButtonWithIcon from "./ButtonWithIcon";
 import CommentBox from "./CommentBox";
+import PhotoProfile from "./PhotoProfile";
+import "../styles/chatbox.scss";
 
 export default function ChatBox({ data }) {
   const [editBoxOpen, setEditBoxOpen] = useState(false);
@@ -23,7 +23,7 @@ export default function ChatBox({ data }) {
       <div className="chat-box-wrapper">
         <div className="detail">
           <div className="photo-wrapper">
-            <img src={data.user.image.png} alt="profile" />
+            <PhotoProfile text={data.user.username} />
           </div>
           <p className="name">{data.user.username}</p>
           <p className="date">{data.createdAt}</p>

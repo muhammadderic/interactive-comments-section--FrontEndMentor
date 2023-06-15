@@ -13,9 +13,6 @@ export default function CommentBox({ text }) {
     "createdAt": Date.now(),
     "score": 0,
     "user": {
-      "image": {
-        "png": "./images/avatars/image-amyrobson.png",
-      },
       "username": user,
     },
     "replies": []
