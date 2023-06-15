@@ -5,6 +5,12 @@
 }
 
 body {
+  margin: 0;
   font-family: 'Rubik', sans-serif;
   background-color: color.$light-gray;
+  box-sizing: border-box;
+}
+
+.app-wrapper {
+  padding: .5rem;
 }

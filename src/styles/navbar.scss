@@ -1,0 +1,25 @@
+@use 'color';
+
+.navbar {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  box-sizing: border-box;
+
+  .brand {
+    margin: 0;
+    font-size: 1.3rem;
+    color: color.$soft-red;
+  }
+
+  .logout__button {
+    padding: .5rem 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  }
+}

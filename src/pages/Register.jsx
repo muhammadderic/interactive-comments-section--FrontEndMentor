@@ -14,6 +14,9 @@ export default function Register() {
   if (localStorage.getItem("comments") === null) {
     localStorage.setItem("comments", JSON.stringify([]));
   }
+  if (localStorage.getItem("user") === null) {
+    localStorage.setItem("user", JSON.stringify({ username: null }));
+  }
 
   const submitHandler = async () => {
     const users = JSON.parse(localStorage.getItem("users"));
