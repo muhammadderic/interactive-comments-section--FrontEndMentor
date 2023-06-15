@@ -35,11 +35,12 @@ export default function ChatBox({ data }) {
             <p className="vote-num">{data.score}</p>
             <img src="/images/icon-minus.svg" alt="unvote" className="icon-minus" />
           </div>
-          {data.replyingTo && user === data.user.username ?
+          {user === data.user.username ?
             <div className="user-control">
               <ButtonWithIcon filename={"icon-delete"} text={"Delete"} />
               <ButtonWithIcon filename={"icon-edit"} text={"Edit"} onClick={editHandler} />
-            </div> :
+            </div>
+            :
             <ButtonWithIcon filename={"icon-reply"} text={"Reply"} onClick={replyHandler} />
           }
         </div>
