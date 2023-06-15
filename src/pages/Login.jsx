@@ -25,6 +25,7 @@ export default function Login() {
           comments: userComments,
         }
       })
+      localStorage.setItem("user", JSON.stringify({ username }));
       navigate("/");
     } else {
       setLoginStatus(false);

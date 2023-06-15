@@ -10,7 +10,7 @@ if (currentUser) {
 }
 
 const INITIAL_STATE = {
-  user: currentUser,
+  user: currentUser?.username,
   comments: currentUserComments,
 }
 

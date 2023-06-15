@@ -7,7 +7,7 @@ export default function Navbar() {
 
   const logoutHandler = () => {
     if (window.confirm("Are you sure?")) {
-      localStorage.setItem("user", JSON.stringify({ username: null }));
+      localStorage.setItem("user", JSON.stringify(null));
       dispatch({
         type: "LOGOUT"
       })
