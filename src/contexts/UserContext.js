@@ -1,10 +1,13 @@
 import { createContext, useReducer } from "react"
 import UserReducer from "./UserReducer";
 
-const currentUser = localStorage.getItem("user");
+const currentUser = JSON.parse(localStorage.getItem("user"));
 const currentComments = JSON.parse(localStorage.getItem("comments"))
 
-const currentUserComments = currentComments.filter(cc => cc.user.username === currentUser);
+let currentUserComments = currentComments;
+if (currentUser) {
+  currentUserComments = currentComments.filter(cc => cc.user.username === currentUser);
+}
 
 const INITIAL_STATE = {
   user: currentUser,
