@@ -18,6 +18,15 @@ export default function ChatBox({ data }) {
     setReplyBoxOpen(!replyBoxOpen);
   }
 
+  const changeTypeOfTime = (time) => {
+    let t = (Date.now() - time) / 3600000;
+    if (t > 24) {
+      t = t / 24;
+      return `${t.toFixed()} days ago`
+    }
+    return `${t.toFixed()} hour ago`;
+  }
+
   return (
     <div className="chat-box-container">
       <div className="chat-box-wrapper">
@@ -26,7 +35,7 @@ export default function ChatBox({ data }) {
             <PhotoProfile text={data.user.username} />
           </div>
           <p className="name">{data.user.username}</p>
-          <p className="date">{data.createdAt}</p>
+          <p className="date">{changeTypeOfTime(data.createdAt)}</p>
         </div>
         <p className="comment">{data.content}</p>
         <div className="control">
