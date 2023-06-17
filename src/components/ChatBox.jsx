@@ -22,7 +22,9 @@ export default function ChatBox({ data }) {
     let t = (Date.now() - time) / 3600000;
     if (t > 24) {
       t = t / 24;
-      return `${t.toFixed()} days ago`
+      return `${t.toFixed()} days ago`;
+    } else if (t < 1) {
+      return "a moment ago";
     }
     return `${t.toFixed()} hour ago`;
   }
