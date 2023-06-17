@@ -3,20 +3,14 @@ import { UserContext } from "../contexts/UserContext";
 import ButtonWithIcon from "./ButtonWithIcon";
 import CommentBox from "./CommentBox";
 import PhotoProfile from "./PhotoProfile";
+import CommentBoxEdit from "./CommentBoxEdit";
 import "../styles/chatbox.scss";
 
 export default function ChatBox({ data }) {
   const [editBoxOpen, setEditBoxOpen] = useState(false);
   const [replyBoxOpen, setReplyBoxOpen] = useState(false);
+  const [editedChatId, setEditedChatId] = useState(null);
   const { user } = useContext(UserContext);
-
-  const editHandler = () => {
-    setEditBoxOpen(!editBoxOpen);
-  }
-
-  const replyHandler = () => {
-    setReplyBoxOpen(!replyBoxOpen);
-  }
 
   const changeTypeOfTime = (time) => {
     let t = (Date.now() - time) / 3600000;
@@ -27,6 +21,15 @@ export default function ChatBox({ data }) {
       return "a moment ago";
     }
     return `${t.toFixed()} hour ago`;
+  }
+
+  const editHandler = (id) => {
+    setEditBoxOpen(!editBoxOpen);
+    setEditedChatId(id);
+  }
+
+  const replyHandler = () => {
+    setReplyBoxOpen(!replyBoxOpen);
   }
 
   const deleteChatHandler = (id) => {
@@ -57,14 +60,14 @@ export default function ChatBox({ data }) {
           {user === data.user.username ?
             <div className="user-control">
               <ButtonWithIcon filename={"icon-delete"} text={"Delete"} onClick={() => deleteChatHandler(data.id)} />
-              <ButtonWithIcon filename={"icon-edit"} text={"Edit"} onClick={editHandler} />
+              <ButtonWithIcon filename={"icon-edit"} text={"Edit"} onClick={() => editHandler(data.id)} />
             </div>
             :
             <ButtonWithIcon filename={"icon-reply"} text={"Reply"} onClick={replyHandler} />
           }
         </div>
       </div>
-      {editBoxOpen && <CommentBox text="EDIT" />}
+      {editBoxOpen && <CommentBoxEdit id={editedChatId} />}
       {replyBoxOpen && <CommentBox text="REPLY" />}
     </div>
   )
