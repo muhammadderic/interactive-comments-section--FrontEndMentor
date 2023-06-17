@@ -27,6 +27,14 @@ export default function ChatBox({ data }) {
     return `${t.toFixed()} hour ago`;
   }
 
+  const deleteChatHandler = (id) => {
+    const comments = JSON.parse(localStorage.getItem("comments"));
+    const commentsFiltered = comments.filter(comment => comment.id !== id)
+    console.log(commentsFiltered);
+    localStorage.setItem("comments", JSON.stringify(commentsFiltered));
+    window.location.reload();
+  }
+
   return (
     <div className="chat-box-container">
       <div className="chat-box-wrapper">
@@ -46,7 +54,7 @@ export default function ChatBox({ data }) {
           </div>
           {user === data.user.username ?
             <div className="user-control">
-              <ButtonWithIcon filename={"icon-delete"} text={"Delete"} />
+              <ButtonWithIcon filename={"icon-delete"} text={"Delete"} onClick={() => deleteChatHandler(data.id)} />
               <ButtonWithIcon filename={"icon-edit"} text={"Edit"} onClick={editHandler} />
             </div>
             :
