@@ -1,12 +1,11 @@
 import { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 import { UserContext } from "../contexts/UserContext";
 import "../styles/register.scss";
 
 export default function Register() {
   const [username, setUsername] = useState("")
   const { dispatch } = useContext(UserContext);
-  const navigate = useNavigate();
 
   if (localStorage.getItem("users") === null) {
     localStorage.setItem("users", JSON.stringify([]));
@@ -26,7 +25,7 @@ export default function Register() {
       localStorage.setItem("user", JSON.stringify({ username }));
     }
     dispatch({ type: "REGISTER", payload: username })
-    navigate("/login");
+    redirect("/login");
   }
 
   return (
